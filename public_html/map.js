@@ -38,7 +38,6 @@ function forgat(nev) {
     let sor = indexek[0];
     let oszlop = indexek[1];
     let ujHossz = hossz;
-    console.log("ne forgasssá!");
     if (!this.hosszaban) {
         this.hosszaban = true;
         for (var i = 0; i < ujHossz; i++) {
@@ -52,17 +51,13 @@ function forgat(nev) {
 
         this.hosszaban = false;
         for (var i = 0; i < ujHossz; i++) {
-            console.log("sor: " + sor);
-            console.log("hossz: " + ujHossz);
             if (sor + hossz > mapDivek.length) {
                 ujHossz = ujHosszSzamolo(sor) - 1;
-                console.log("ujHossz: " + ujHossz);
             }
             if (mapDivek[sor + i][oszlop].className !== "foglalt")
                 mapDivek[sor + i][oszlop].className = "szabad";
         }
     }
-    console.log(this.hosszaban);
 }
 function makePalya() {
     let tartalmazo = document.getElementById("tartalmazo");
@@ -75,7 +70,6 @@ function makePalya() {
     hajok.style.placeItems = "center";
     tartalmazo.style.gridTemplateColumns = "repeat(" + palyaSzelesseg + ", 1fr)";
     tartalmazo.style.gridTemplateRows = "repeat(" + palyaMagassag + ", 1fr)";
-
 
     for (var i = 0; i < palyaMagassag; i++) {
         mapDivek[i] = [];
@@ -95,7 +89,6 @@ function makePalya() {
                 tisztit(nev)
             });
             ujDiv.addEventListener("wheel", function () {
-                szinezo(nev, "blue")
                 forgat(nev)
                 szinezo(nev, "green")
 
@@ -159,6 +152,7 @@ function makeDiv(nev = "", anya, szin = "blue", pozRow = - 1, pozColumn = - 1, m
         ujDiv.style.padding = "2px";
         ujDiv.style.cursor = "pointer";
         ujDiv.style.margin = "auto";
+        ujDiv.style.background = "green";
         ujDiv.addEventListener("click", function () {
             lepakol(hossza);
         });
@@ -223,7 +217,6 @@ function szinezo(nev, szin, keret = false, elmozditottak = false) {
             }
 //            }
             if (oszlop < mapDivek.length - hossz + 1) {
-                console.log(hossz + " egységnyit kéne kitölteni");
                 for (var i = 0; i < hossz; i++) {
                     if (mapDivek[oszlop + i][sor].className == "foglalt" || mapDivek[oszlop + i][sor].style.background == "gray")
                         valid[0] = false;
@@ -232,7 +225,6 @@ function szinezo(nev, szin, keret = false, elmozditottak = false) {
                 }
                 if (valid[0] && !valid[1] && this.lerak) {
                     for (var i = 0; i < hossz; i++) {
-                        console.log("pedig kéne");
                         mapDivek[oszlop + i][sor].className = "sikeres";
                         sikeresLerakas = true;
                     }
@@ -273,8 +265,6 @@ function szinezo(nev, szin, keret = false, elmozditottak = false) {
             }
             if (sor < mapDivek[0].length - hossz + 1) {
                 for (var i = 0; i < hossz; i++) {
-                    console.log("mapDiv hossz: " + mapDivek.length);
-                    console.log("mapDiv[0] hossz: " + mapDivek[0].length);
                     if (mapDivek[oszlop][sor + i].className == "foglalt" || mapDivek[oszlop][sor + i].style.background == "gray")
                         valid[0] = false;
                     if (mapDivek[oszlop][sor + i].style.background == "gray")
@@ -319,7 +309,6 @@ function ujHosszSzamolo(oszlop) {
 
             while (oszlop >= mapDivek[0].length - ujHossz + 1) {
                 ujHossz--;
-                console.log("ujhossz a szamoloban: " + ujHossz);
             }
             break;
     }
@@ -375,7 +364,6 @@ function keretSzamolo(oszlop, sor) {
             }
             break;
     }
-    console.log(keretIndexek);
     return keretIndexek;
 }
 
