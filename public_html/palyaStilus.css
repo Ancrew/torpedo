@@ -15,3 +15,10 @@ body{
 .foglalt{
     background-color:green;
 }
+
+.hibas{
+    background-color:red;
+}
+.sikeres{
+    background-color:green;
+}
