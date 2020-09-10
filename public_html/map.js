@@ -15,14 +15,23 @@ var hossz = 0;
 var lerakottak = [];
 var sikeresLerakas = false;
 var hosszaban = true;
+var mindLerakva=false;
+var maradt=0;
 
 
 init();
 function init() {
     makePalya();
     makeHajok();
-
+    hajoSzamolo();
 }
+function hajoSzamolo(){
+    maradt+=kettesHajoDb;
+    maradt+=harmasHajoDb;
+    maradt+=negyesHajoDb;
+    maradt+=otosHajoDb;
+}
+
 function forgat(nev) {
     kivalaszto(nev);
     let indexek = kivalaszto(nev)
@@ -372,7 +381,6 @@ function keretSzamolo(oszlop, sor) {
 
 function lepakol(hossz) {
     this.hossz = hossz;
-//    console.log("itt még a hossz: "+hossz);
     if (lerak)
         this.lerak = false;
     else {
@@ -451,7 +459,15 @@ function tisztit(nev) {
         }
         this.lerak = false;
         szinezo(nev, "gray", true);
+        jatekIndito();
     }
+}
+
+function jatekIndito(){
+ maradt--;
+ if (maradt===0){
+     alert("Indulhat a móka!");
+ }
 }
 
 function kivalaszto(nev) {                                                       //index0=oszlop index[1]=sor!
