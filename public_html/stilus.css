@@ -1,0 +1,297 @@
+body{
+    padding:0px;
+    margin:0px;
+}
+
+#hajosKeret{
+    /*animation: hullamzas 2s ease-in-out infinite;*/
+    
+}
+#teljesHajo{
+    animation: ablakBeuszas 6s ease-out forwards;;
+    /*animation-fill-mode: forwards;*/
+}
+#teljesHalaszHajo{
+    z-index:2;
+}
+#hullamozzunk{
+    animation:hullamozzunk 2s ease-in-out infinite;
+    transform-origin: 60px 60px;
+}
+#hullamkeret{
+    animation: hullamzas 2s linear infinite;
+}
+#kifogashoz{
+    transform-origin:86% 83%;
+    animation: pecazas 10s ease-in-out infinite;
+}
+#zsinorralTorpedo{
+    position: relative;
+    animation: zsinorEsTorpedo 10s  infinite; 
+}
+
+#zsinor{
+    position:relative;
+    transform-origin: 87% 79%;
+    animation: felhuzas 10s ease-in-out infinite;
+}
+#pecasTorpedo{
+    position:relative;
+    animation:torpedoKifogas 10s ease-in infinite;
+     transform-origin: 87% 79%;
+     
+}
+#test{
+    animation: fordul 10s ease-in-out infinite;
+}
+/*#bot{
+    animation: leenged 10s ease-in-out infinite;
+}*/
+@keyframes fordul{
+    0%{
+       transform:
+           rotateY(0deg);
+       transform-origin:86% 86%;  
+       
+    }
+    50%{
+       transform:
+           rotateY(0deg);   
+    }
+    60%{
+       transform:
+           rotateY(90deg);   
+    }
+    75%{
+       transform:
+           rotateY(180deg);   
+    }
+    80%{
+       transform:
+           rotateY(0deg);   
+    }
+    100%{
+       transform:
+           rotateY(0deg);   
+       transform-origin:86% 86%;  
+    }
+}
+
+@keyframes zsinorEsTorpedo{
+    0%{
+        transform:
+              translateX(-0vh)
+              translateY(-0vh)
+        rotateZ(0deg));
+      transform-origin:82% 80%;  
+    }  
+    11%{ transform:
+        rotateZ(-1.2deg);     
+              translateX(0vh)
+              translateY(0vh);
+      transform-origin:70% 180%;  
+    }  
+/*    10%{ transform:
+              translateX(-0.5vh)
+              translateY(-0.9vh);
+      transform-origin:7% 8%;  
+    }  */
+    91%{ transform:
+             
+              translateX(-1.4vh)
+              translateY(-0.9vh);
+          transform-origin:70% 180%;
+      /*transform-origin:7% 8%;*/  
+    }  
+    93%{ transform:
+              transform-origin:82% 80%;
+/*              translateX(-1.4vh)
+              translateY(-0.9vh);*/
+      /*transform-origin:7% 8%;*/  
+    }  
+    100%{
+        translateY(-2vh);
+          translateX(-1vh);
+      /*transform-origin:7% 8%;*/  
+    }    
+}
+
+@keyframes felhuzas{
+/*    0%{
+    transform:scale(1);
+    }*/
+    20%{
+         transform-origin:87.7% 79.2%;
+    transform:scale(1);
+    }
+    40%{
+        transform:scale(0.2);
+    }
+    88%{
+        transform:scale(0.2);
+         transform-origin: 88.5% 80%;
+    }
+    100%{
+    transform:scale(1);
+    }
+/*    100%{
+    transform:scale(1);
+    }*/
+}
+
+
+@keyframes torpedoKifogas{
+    0%{
+        transform: rotateZ(0deg)
+        translateX(-0.1vh);
+    }
+   20%
+    {
+        transform: rotateZ(-6deg)
+            translateX(-0.2vh)
+         translateY(0vh);
+    }
+    35%{
+        transform: rotateZ(-6deg)
+         translateY(-1.7vh)
+        translateX(0.5vh);
+    }
+    
+    60%{
+          transform: 
+         translateY(-1.6vh)
+        translateX(0.5vh)
+        rotateZ(9deg);
+             transform-origin:87% 79%;
+    }
+   70%{
+        transform: 
+            rotateZ(-8deg)
+         translateY(-2.5vh)
+        translateX(-1vh);
+       transform-origin:84% 87%;
+    }
+    74%{
+        transform: 
+            rotateZ(-100deg)
+         translateY(-2.9vh)
+        translateX(-3vh);
+         transform-origin:84% 87%;
+        opacity:1;
+    }
+    81%{
+        transform: 
+            rotateZ(-100deg)
+         translateY(-1.5vh)
+        translateX(-2vh);
+        opacity:0;
+         transform-origin:84% 89%;
+    }
+    100%{
+        transform: 
+            rotateZ(-340deg)
+         translateY(-3.5vh)
+        translateX(-9vh);
+        opacity:0;
+          transform-origin:83% 87%;
+    }
+}
+
+@keyframes hullamozzunk{
+     0%{
+        transform: rotateZ(0deg);
+    }
+
+
+    33%
+    {
+        transform: rotateZ(-0.5deg);
+    }
+    66%{
+        transform: rotateZ(0.5deg);
+    }
+
+}
+@keyframes hullamzas {
+    from{
+      transform:translateX(0vh);
+      /*trasform:rotateZ(0deg);*/
+    }
+
+
+    to{
+       transform:translateX(-94px);
+       
+    }   
+}
+
+@keyframes pecazas{
+    
+
+
+    10%
+    {
+        transform: rotateZ(-25deg);
+         transform-origin:86% 83%;
+    }
+    50%
+    {
+        transform: rotateZ(-25deg);
+         transform-origin:86% 83%;
+    }
+    54%{
+       transform:
+           rotatez(30deg);
+       transform-origin:86% 80%;  
+       
+    }
+      85%{
+       transform:
+           rotatez(30deg);
+       transform-origin:86% 80%; 
+       
+    }
+    
+    90%
+    {
+        transform: rotateZ(-25deg);
+    }
+  
+}
+/*
+@keyframes hatradob{
+    0%{
+        transform: rotateZ(0deg);
+    }
+
+
+    10%
+    {
+        transform: rotateZ(-30deg);
+    }
+}*/
+
+#udvozlo{
+ text-align: center;   
+}
+
+@keyframes ablakBeuszas{
+
+    0%{
+       transform:translateX(-390px)
+       /*rotateZ(0deg);*/
+    }
+/*    20%{
+        transform:translateX(-350px);
+    }
+    25%{
+        transform:translateX(-300px);
+    }
+    40%{
+        transform:translateX(-150px);
+    }*/
+    100%{
+         transform:translateX(0px)
+         /*rotateZ(-1deg);*/
+    }
+}

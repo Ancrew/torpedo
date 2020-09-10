@@ -1,0 +1,12 @@
+body{
+    display:grid;
+}
+  #tartalmazo{
+      display:grid;
+}
+
+#hajok{
+    display:grid;
+    justify-content: space-around;
+}
+
