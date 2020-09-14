@@ -77,7 +77,7 @@ function makePalya() {
 //    tartalmazo.style.position = "absolute";
 
     for (var i = 0; i < palyaMagassag; i++) {
-         makeDiv("teszt"+i, "keret");
+       
          indexPoziciohoz++;
         mapDivek[i] = [];
         for (var x = 0; x < palyaSzelesseg; x++) {
@@ -102,6 +102,11 @@ function makePalya() {
 
             });
         }
+    }
+    
+    for (var z = 0; z < palyaSzelesseg; z++) {
+          makeDiv("teszt"+z, "keret");
+            indexPoziciohoz++;
     }
 }
 
@@ -157,7 +162,7 @@ function makeDiv(nev = "", anya, szin = "blue", pozRow = - 1, pozColumn = - 1, m
     ujDiv.style.border = "1px solid black";
     if (nev.includes("teszt", 0)){
         divem.style.position="absolute";
-        divem.style.left=indexPoziciohoz*kockaMeret+10+"px";
+        divem.style.left=indexPoziciohoz*(kockaMeret+2)+"px";
         divem.style.border="1px solid red";
         divem.style.top="20px";
 //        divem.style.margin="7px";
