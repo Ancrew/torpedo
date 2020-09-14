@@ -4,7 +4,7 @@ body{
     padding:0;
 }
 #tartalmazo{
-    margin:auto;
+    /*margin:auto;*/
     border:1px solid black;
 
 }
@@ -21,4 +21,16 @@ body{
 }
 .sikeres{
     background-color:green;
+}
+
+.indexek{
+    background-color: white;
+    /*text-align: center;*/
+    text-transform: uppercase;
+}
+#keret{
+    margin:auto;
+    padding:0;
+    padding-top:50px;
+    position:relative;
 }

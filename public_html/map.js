@@ -17,6 +17,7 @@ var sikeresLerakas = false;
 var hosszaban = true;
 var mindLerakva=false;
 var maradt=0;
+var indexPoziciohoz=0;                                                                 // pálya széli indexet jelöli
 
 
 init();
@@ -34,7 +35,7 @@ function hajoSzamolo(){
 
 function forgat(nev) {
     kivalaszto(nev);
-    let indexek = kivalaszto(nev)
+    let indexek = kivalaszto(nev);
     let sor = indexek[0];
     let oszlop = indexek[1];
     let ujHossz = hossz;
@@ -60,9 +61,10 @@ function forgat(nev) {
     }
 }
 function makePalya() {
+    let keret = document.getElementById("keret");
     let tartalmazo = document.getElementById("tartalmazo");
     let hajok = document.getElementById("hajok");
-    document.body.style.gridTemplateRows = "" + palyaMagassag * (kockaMeret + 3) + "px " + 6 * ((kockaMeret + 15) / 2) + "px";
+    keret.style.gridTemplateRows = "" + palyaMagassag * (kockaMeret + 3) + "px " + 6 * ((kockaMeret + 15) / 2) + "px";
     hajok.style.width = palyaSzelesseg * (kockaMeret + 2) + "px";
     hajok.style.height = 8 * (kockaMeret / 3) + "px";
     hajok.style.margin = "auto";
@@ -70,27 +72,33 @@ function makePalya() {
     hajok.style.placeItems = "center";
     tartalmazo.style.gridTemplateColumns = "repeat(" + palyaSzelesseg + ", 1fr)";
     tartalmazo.style.gridTemplateRows = "repeat(" + palyaMagassag + ", 1fr)";
+//    keret.style.gridTemplateColumns = "repeat(" + palyaSzelesseg + ", 1fr)";
+//    keret.style.gridTemplateRows = "repeat(" + palyaMagassag + ", 1fr)";
+//    tartalmazo.style.position = "absolute";
 
     for (var i = 0; i < palyaMagassag; i++) {
+         makeDiv("teszt"+i, "keret");
+         indexPoziciohoz++;
         mapDivek[i] = [];
         for (var x = 0; x < palyaSzelesseg; x++) {
+           
             let nev = "p" + i + "." + x;
             makeDiv(nev, "tartalmazo");
             let ujDiv = document.getElementById(nev);
             mapDivek[i].push(ujDiv);
 
             ujDiv.onmouseout = function () {
-                ellenorzo(ujDiv)
+                ellenorzo(ujDiv);
             };
             ujDiv.onmouseover = function () {
-                szinezo(nev, "green")
+                szinezo(nev, "green");
             };
             ujDiv.addEventListener("click", function () {
-                tisztit(nev)
+                tisztit(nev);
             });
             ujDiv.addEventListener("wheel", function () {
-                forgat(nev)
-                szinezo(nev, "green")
+                forgat(nev);
+                szinezo(nev, "green");
 
             });
         }
@@ -132,19 +140,47 @@ function ellenorzo(divem) {
     }
 }
 
+//function insertAfter(referenceNode, newNode) {
+//  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+//}
 
 
 function makeDiv(nev = "", anya, szin = "blue", pozRow = - 1, pozColumn = - 1, meret = kockaMeret, hajo = false, merete = 0) {
     let divem = document.createElement("div");
     divem.id = nev;
+    
     let hossza = merete;
     document.getElementById(anya).appendChild(divem);
     let ujDiv = document.getElementById(nev);
     ujDiv.style.height = meret + "px";
     ujDiv.style.width = meret + "px";
     ujDiv.style.border = "1px solid black";
+    if (nev.includes("teszt", 0)){
+        divem.style.position="absolute";
+        divem.style.left=indexPoziciohoz*kockaMeret+10+"px";
+        divem.style.border="1px solid red";
+        divem.style.top="20px";
+//        divem.style.margin="7px";
+    }
     if (anya === "tartalmazo") {
         ujDiv.className = "szabad";
+//        if(nev.includes("0", 1)){
+//             let indexhez = document.createElement("p");
+//            indexhez.innerHTML = szamlalo;
+//            indexhez.className = "szamlalohoz";
+//            indexhezkell = document.getElementById("szamlalohoz");
+//             divem.className="indexek";
+//             insertAfter(divem, indexhezkell);
+////            divem.innerHTML =(szamlalo+10).toString(36);
+//            if(szamlalo>=palyaSzelesseg){
+//                
+////                divem.innerHTML=szamlalo-palyaSzelesseg;
+//               
+//            }
+//            szamlalo++;
+//            let ertek = document.createElement("p");
+//            ertek.innerHTML = "e";
+//        }
     }
     if (pozRow >= 0 && hajo) {
         ujDiv.style.display = "grid";
@@ -191,7 +227,7 @@ function makeHajok() {
 }
 
 
-function szinezo(nev, szin, keret = false, elmozditottak = false) {
+function szinezo(nev, szin, keret = false) {
     sikeresLerakas = false;
     let indexek = kivalaszto(nev);                                         //a nev a div amin az eger all, a cel pedig vagy a hajo elemei, vagy a körülötte lévő keret
     let oszlop = indexek[0];
