@@ -1,6 +1,6 @@
 var kockaMeret = 23;
-var palyaSzelesseg = 9;
-var palyaMagassag = 8;
+var palyaSzelesseg = 11;
+var palyaMagassag = 12;
 var kettesHajoDb = 2;
 var harmasHajoDb = 2;
 var negyesHajoDb = 1;
@@ -78,7 +78,7 @@ function makePalya() {
 
     for (var i = 0; i < palyaMagassag; i++) {
        
-         indexPoziciohoz++;
+//         indexPoziciohoz++;
         mapDivek[i] = [];
         for (var x = 0; x < palyaSzelesseg; x++) {
            
@@ -105,7 +105,12 @@ function makePalya() {
     }
     
     for (var z = 0; z < palyaSzelesseg; z++) {
-          makeDiv("teszt"+z, "keret");
+          makeDiv("vizszintesIndex"+z, "keret");
+            indexPoziciohoz++;
+    }
+    indexPoziciohoz=0;
+    for (var e = 0; e < palyaMagassag; e++) {
+          makeDiv("fuggolegesIndex"+e, "keret");
             indexPoziciohoz++;
     }
 }
@@ -160,12 +165,18 @@ function makeDiv(nev = "", anya, szin = "blue", pozRow = - 1, pozColumn = - 1, m
     ujDiv.style.height = meret + "px";
     ujDiv.style.width = meret + "px";
     ujDiv.style.border = "1px solid black";
-    if (nev.includes("teszt", 0)){
-        divem.style.position="absolute";
+    if (nev.includes("vizszintesIndex", 0)){
+        divem.className="vizszintesIndex";
         divem.style.left=indexPoziciohoz*(kockaMeret+2)+"px";
-        divem.style.border="1px solid red";
-        divem.style.top="20px";
-//        divem.style.margin="7px";
+        divem.style.border="none";
+        divem.innerHTML=indexPoziciohoz+1;
+    }
+    if (nev.includes("fuggolegesIndex", 0)){
+        divem.className="fuggolegesIndex";
+        divem.style.top=55+indexPoziciohoz*(kockaMeret+2)+"px";
+        divem.style.border="none";
+        divem.innerHTML=(indexPoziciohoz+10).toString(36);
+//        li.innerHTML = "letter " + (i+10).toString(36) + " ";
     }
     if (anya === "tartalmazo") {
         ujDiv.className = "szabad";

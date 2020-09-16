@@ -34,3 +34,21 @@ body{
     padding-top:50px;
     position:relative;
 }
+.vizszintesIndex{
+    position:absolute;
+    /*border:none;*/
+    top:25px;
+    /*margin:1px;*/
+    text-align: center;
+    /*text-justify: center;*/
+    
+}
+.fuggolegesIndex{
+    position:absolute;
+    /*border:none;*/
+    left:-25px;
+    /*margin:1px;*/
+    text-align: center;
+    /*text-justify: auto;*/
+    
+}
