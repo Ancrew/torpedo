@@ -303,7 +303,7 @@ function szinezo(nev, szin, keret = false) {
         case false:
             if (lerak && mapDivek[oszlop][sor].className !== "foglalt") {
                 for (var i = 0; i < hossz; i++) {
-                    if (sor >= mapDivek.length - ujHossz + 1 || mapDivek[oszlop][sor + i].className === "foglalt" && lerak)
+                    if (sor >= mapDivek.length - ujHossz  || mapDivek[oszlop][sor + i].className === "foglalt" && lerak)
                         kellszamolni = true;
                 }
                 if (kellszamolni) {
